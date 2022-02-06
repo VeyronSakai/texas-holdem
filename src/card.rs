@@ -1,6 +1,6 @@
 use crate::suit::Suit;
 
-#[derive(PartialEq, Debug, Copy, Clone)]
+#[derive(Eq, PartialEq, Debug, Copy, Clone)]
 pub struct Card {
     pub number: u8,
     pub suit: Suit,
@@ -17,7 +17,7 @@ impl Card {
     }
 }
 
-#[derive(PartialEq, Debug, Copy, Clone)]
+#[derive(Eq, PartialEq, Debug, Copy, Clone)]
 pub enum State {
     // デッキ中にある
     InDeck,
@@ -25,9 +25,6 @@ pub enum State {
     // ハンド中にある
     InHand,
 
-    // 表向きの状態でボード上にある
-    UpOnBoard,
-
-    // 裏向きの状態でボード上にある
-    DownOnBoard,
+    // ボード上にある
+    OnBoard,
 }
