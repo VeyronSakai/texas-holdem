@@ -1,22 +1,21 @@
-use texas_holdem::card::Card;
-use texas_holdem::hand::Hand;
+use texas_holdem::card::{Card, State};
+use texas_holdem::hand::{Hand, HAND_NUM};
 use texas_holdem::suit::Suit;
 
 #[test]
 fn it_works() {
     #[derive(Debug)]
     struct TestCase {
-        args: (Card, Card),
+        args: [Card; HAND_NUM],
         expected: Hand,
         name: String,
     }
 
     let table = [
         TestCase {
-            args: (Card::new(1, Suit::Club), Card::new(1, Suit::Heart)),
+            args: [Card::new(1, Suit::Club, State::InDeck), Card::new(1, Suit::Heart, State::InDeck)],
             expected: Hand {
-                card1: Card::new(1, Suit::Club),
-                card2: Card::new(1, Suit::Heart),
+                cards: [Card::new(1, Suit::Club, State::InDeck), Card::new(1, Suit::Heart, State::InDeck)],
             },
             name: String::from("正常系1"),
         },
@@ -24,7 +23,7 @@ fn it_works() {
 
     for test_case in table {
         assert_eq!(
-            Hand::new(test_case.args.0, test_case.args.1),
+            Hand::new(test_case.args),
             test_case.expected,
             "Failed in the {:?}.",
             test_case,
@@ -35,5 +34,5 @@ fn it_works() {
 #[test]
 #[should_panic]
 fn it_doesnt_work() {
-    Hand::new(Card::new(5, Suit::Club), Card::new(5, Suit::Club));
+    Hand::new([Card::new(5, Suit::Club, State::InHand), Card::new(5, Suit::Club, State::InHand)]);
 }

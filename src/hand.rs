@@ -1,20 +1,18 @@
-use std::collections::BTreeSet;
 use crate::card::Card;
+
+pub const HAND_NUM: usize = 2;
 
 #[derive(PartialEq, Debug, Copy, Clone)]
 pub struct Hand {
-    pub card1: Card,
-    pub card2: Card,
+    pub cards: [Card; HAND_NUM],
 }
 
 impl Hand {
-    pub fn new(card1: Card, card2: Card) -> Hand {
-        if card1 == card2 {
+    pub fn new(cards: [Card; HAND_NUM]) -> Hand {
+        if cards[0] == cards[1] {
             panic!("全く同じカードが配られることはありません。")
         }
 
-        Hand { card1, card2 }
+        Hand { cards }
     }
 }
-
-
