@@ -1,6 +1,6 @@
 use crate::suit::Suit;
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Copy, Clone)]
 pub struct Card {
     pub number: u8,
     pub suit: Suit,
