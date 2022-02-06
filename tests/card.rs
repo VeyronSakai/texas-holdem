@@ -2,7 +2,7 @@ use texas_holdem::card::Card;
 use texas_holdem::suit::Suit;
 
 #[test]
-fn new_test() {
+fn it_works() {
     #[derive(Debug)]
     struct TestCase {
         args: (u8, Suit),
@@ -41,7 +41,7 @@ fn new_test() {
 
 #[test]
 #[should_panic]
-fn new_test3() {
+fn it_doesnt_work() {
     Card::new(0, Suit::Club);
     Card::new(20, Suit::Club);
 }
