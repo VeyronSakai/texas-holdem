@@ -3,5 +3,14 @@
 version = 3
 
 [[package]]
+name = "test-macro"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e34483880234865bdfaf9fb5e7d3dd9a97d37ef9ad41b20c49e6e86c5a991c08"
+
+[[package]]
 name = "texas-holdem"
 version = "0.1.0"
+dependencies = [
+ "test-macro",
+]
