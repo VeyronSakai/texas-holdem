@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 
 [dev-dependencies]
-test-macro = "0.1.4"
+test-macro = "0.1.5"

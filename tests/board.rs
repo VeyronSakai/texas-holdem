@@ -32,31 +32,31 @@ use texas_holdem::suit::Suit;
 //     }
 // }
 
-test_macro::test_eq!(
+test_macro::test_assert_eq!(
     eq_case1,
     Board::new(vec![Card::new(1, Suit::Club, State::InHand)]) =>
     Board {cards: vec![Card::new(1, Suit::Club, State::InHand)]}
 );
 
-test_macro::test_eq!(
+test_macro::test_assert_eq!(
     eq_case2,
     Board::new(vec![Card::new(10, Suit::Heart, State::OnBoard)]) =>
     Board {cards: vec![Card::new(10, Suit::Heart, State::OnBoard)]}
 );
 
-test_macro::test_ne!(
+test_macro::test_assert_ne!(
     ne_case1,
     Board::new(vec![Card::new(1, Suit::Club, State::InHand)]) =>
     Board {cards: vec![Card::new(2, Suit::Club, State::InHand)]}
 );
 
-test_macro::test_ne!(
+test_macro::test_assert_ne!(
     ne_case2,
     Board::new(vec![Card::new(1, Suit::Club, State::InHand)]) =>
     Board {cards: vec![Card::new(1, Suit::Heart, State::InHand)]}
 );
 
-test_macro::test_ne!(
+test_macro::test_assert_ne!(
     ne_case3,
     Board::new(vec![Card::new(1, Suit::Club, State::InHand)]) =>
     Board {cards: vec![Card::new(1, Suit::Club, State::OnBoard)]}
