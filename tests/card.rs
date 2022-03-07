@@ -1,5 +1,5 @@
 use texas_holdem::card::Card;
-use texas_holdem::card::State::{self, InDeck, InHand};
+use texas_holdem::card::State::{self, InDeck, InHand, OnBoard};
 use texas_holdem::suit::Suit;
 
 #[test]
