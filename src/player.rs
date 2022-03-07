@@ -6,12 +6,14 @@ const HAND_NUM: usize = 2;
 #[derive(PartialEq, Debug)]
 pub struct Player {
     pub cards: [Card; HAND_NUM],
+    pub chip: i32,
 }
 
 impl Player {
     pub fn new(cards: [Card; HAND_NUM]) -> Player {
         Player {
-            cards
+            cards,
+            chip: 0,
         }
     }
 }
@@ -22,16 +24,17 @@ fn it_works() {
 
     #[derive(Debug)]
     struct TestCase {
+        name: String,
         args: [Card; HAND_NUM],
         expected: Player,
-        name: String,
     }
 
     let table = [
         TestCase {
             args: [Card::new(1, Suit::Club, State::InHand), Card::new(1, Suit::Club, State::InHand)],
             expected: Player {
-                cards: [Card::new(1, Suit::Club, State::InHand), Card::new(1, Suit::Club, State::InHand)]
+                cards: [Card::new(1, Suit::Club, State::InHand), Card::new(1, Suit::Club, State::InHand)],
+                chip: 0,
             },
             name: String::from("正常系1"),
         },
