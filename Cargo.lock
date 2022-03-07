@@ -4,9 +4,9 @@ version = 3
 
 [[package]]
 name = "test-macro"
-version = "0.1.5"
+version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "84255b48b36bebcbd3466d190aeb31b74a3d35d62d92307a6a327bd547442e04"
+checksum = "868c89c495f940f43e9dde9ffd00eed30f33dd60fce2f99287a9989dd089ae0a"
 
 [[package]]
 name = "texas-holdem"
