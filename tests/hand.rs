@@ -30,5 +30,3 @@ fn it_works() {
         );
     }
 }
-
-test_macro::test_should_panic!(hand_new_should_panic_test1, Hand::new([Card::new(5, Suit::Club, State::InHand), Card::new(5, Suit::Club, State::InHand)]));

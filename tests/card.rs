@@ -41,6 +41,3 @@ fn it_works() {
         );
     }
 }
-
-test_macro::test_should_panic!(card_new_should_panic_test1, Card::new(0, Suit::Club, InHand));
-test_macro::test_should_panic!(card_new_should_panic_test2, Card::new(20, Suit::Club, InHand));
