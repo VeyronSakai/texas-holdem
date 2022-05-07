@@ -1,3 +1,4 @@
+use rand::prelude::SliceRandom;
 use crate::card::Card;
 use crate::card::State::InDeck;
 use crate::suit::Suit;
@@ -25,7 +26,8 @@ impl Deck {
 
     // Shuffle deck
     pub fn shuffle_cards(&mut self) {
-        self.cards[0] = Card::new(1, Suit::Heart, InDeck);
+        let mut rng = rand::thread_rng();
+        self.cards.shuffle(&mut rng);
     }
 }
 
