@@ -1,49 +1,33 @@
 use crate::card::Card;
 use crate::card::State::InDeck;
+use crate::deck::Deck;
 use crate::suit::Suit;
 
 #[derive(PartialEq, Debug)]
 pub struct Dealer {
-    pub deck: Vec<Card>,
+    pub deck: Deck,
 }
 
 impl Dealer {
-    // pub fn new() -> Dealer {
-    //     let mut deck: Vec<Card> = Vec::new();
-    //     for num in 1..=13 {
-    //         deck.push(Card::new(num, Suit::Club, InDeck));
-    //         deck.push(Card::new(num, Suit::Heart, InDeck));
-    //         deck.push(Card::new(num, Suit::Diamond, InDeck));
-    //         deck.push(Card::new(num, Suit::Spade, InDeck));
-    //     }
-    //
-    //     Dealer {
-    //         deck
-    //     }
-    // }
+    pub fn new() -> Dealer {
+        Dealer {
+            deck: Deck::new()
+        }
+    }
 
     // Shuffle deck
     fn shuffle(&mut self) {
-        self.deck[0] = Card::new(1, Suit::Heart, InDeck);
+        self.deck.shuffle_cards();
     }
 }
 
+#[test]
+fn new_test() {
+    use crate::deck::tests::build_mock_deck;
 
+    let want = Dealer {
+        deck: build_mock_deck()
+    };
 
-// #[test]
-// fn shuffle_test() {
-//     use crate::dealer::tests::build_mock_deck;
-//
-//     #[derive(Debug)]
-//     struct TestCase {
-//         name: String,
-//         expected: Dealer,
-//     }
-//
-//     let mut dealer = Dealer::new();
-//
-//     dealer.shuffle();
-//
-//     println!("{:?}", dealer.deck)
-// }
-//
+    assert_eq!(Dealer::new(), want);
+}

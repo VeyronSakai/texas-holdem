@@ -24,9 +24,9 @@ impl Deck {
     }
 
     // Shuffle deck
-    // fn shuffle_cards(&mut self) {
-    //     self.[0] = Card::new(1, Suit::Heart, InDeck);
-    // }
+    pub fn shuffle_cards(&mut self) {
+        self.cards[0] = Card::new(1, Suit::Heart, InDeck);
+    }
 }
 
 #[test]
@@ -41,9 +41,7 @@ fn new_test() {
 
     let table = [
         TestCase {
-            expected: Deck {
-                cards: build_mock_deck(),
-            },
+            expected: build_mock_deck(),
             name: String::from("正常系1"),
         },
     ];
@@ -58,15 +56,22 @@ fn new_test() {
     }
 }
 
+#[test]
+fn shuffle_test() {
+    let mut deck = Deck::new();
+    deck.shuffle_cards();
+}
+
 #[cfg(test)]
-mod tests {
+pub mod tests {
     use crate::card::Card;
     use crate::card::State::*;
     use crate::dealer::Dealer;
+    use crate::deck::Deck;
     use crate::suit::Suit;
 
-    pub fn build_mock_deck() -> Vec<Card> {
-        vec![
+    pub fn build_mock_deck() -> Deck {
+        let cards = vec![
             Card::new(1, Suit::Club, InDeck),
             Card::new(1, Suit::Heart, InDeck),
             Card::new(1, Suit::Diamond, InDeck),
@@ -119,6 +124,10 @@ mod tests {
             Card::new(13, Suit::Heart, InDeck),
             Card::new(13, Suit::Diamond, InDeck),
             Card::new(13, Suit::Spade, InDeck),
-        ]
+        ];
+
+        Deck {
+            cards
+        }
     }
 }
