@@ -8,7 +8,7 @@ pub struct Board {
 impl Board {
     pub fn new(cards: Vec<Card>) -> Board {
         if cards.len() > 5 {
-            panic!("6枚以上のカードをボード上に並べることはできません");
+            panic!("No more than 6 cards can be lined up on the board");
         }
 
         Board {
