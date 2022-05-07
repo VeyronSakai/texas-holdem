@@ -19,13 +19,10 @@ impl Card {
 
 #[derive(Eq, PartialEq, Debug, Copy, Clone)]
 pub enum State {
-    // デッキ中にある
     InDeck,
 
-    // ハンド中にある
     InHand,
 
-    // ボード上にある
     OnBoard,
 }
 

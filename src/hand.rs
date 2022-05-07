@@ -10,7 +10,7 @@ pub struct Hand {
 impl Hand {
     pub fn new(cards: [Card; HAND_NUM]) -> Hand {
         if cards[0] == cards[1] {
-            panic!("全く同じカードが配られることはありません。")
+            panic!("The exact same card will not be dealt.")
         }
 
         Hand { cards }
