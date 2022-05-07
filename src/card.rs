@@ -10,7 +10,7 @@ pub struct Card {
 impl Card {
     pub fn new(number: u8, suit: Suit, state: State) -> Card {
         if number < 1 || 13 < number {
-            panic!("トランプの数字は1以上13以下でなければなりません。")
+            panic!("The number of playing cards must be between 1 and 13.")
         }
 
         Card { number, suit, state }
