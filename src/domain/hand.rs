@@ -1,4 +1,5 @@
-use crate::card::{Card, State};
+use crate::domain::card::{Card, State};
+use crate::domain::suit::Suit;
 
 pub const HAND_NUM: usize = 2;
 
@@ -19,8 +20,6 @@ impl Hand {
 
 #[test]
 fn it_works() {
-    use crate::suit::Suit;
-    use crate::card::State;
 
     #[derive(Debug)]
     struct TestCase {

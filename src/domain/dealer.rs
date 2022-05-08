@@ -1,7 +1,4 @@
-use crate::card::Card;
-use crate::card::State::InDeck;
-use crate::deck::Deck;
-use crate::suit::Suit;
+use crate::domain::deck::Deck;
 
 #[derive(PartialEq, Debug)]
 pub struct Dealer {
@@ -23,7 +20,7 @@ impl Dealer {
 
 #[test]
 fn new_test() {
-    use crate::deck::tests::build_mock_deck;
+    use crate::domain::deck::tests::build_mock_deck;
 
     let want = Dealer {
         deck: build_mock_deck()

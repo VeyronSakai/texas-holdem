@@ -1,7 +1,7 @@
 use rand::prelude::SliceRandom;
-use crate::card::Card;
-use crate::card::State::InDeck;
-use crate::suit::Suit;
+use crate::domain::card::Card;
+use crate::domain::card::State::InDeck;
+use crate::domain::suit::Suit;
 
 #[derive(PartialEq, Debug)]
 pub struct Deck {
@@ -33,8 +33,6 @@ impl Deck {
 
 #[test]
 fn new_test() {
-    use crate::deck::tests::build_mock_deck;
-
     #[derive(Debug)]
     struct TestCase {
         name: String,
@@ -43,7 +41,7 @@ fn new_test() {
 
     let table = [
         TestCase {
-            expected: build_mock_deck(),
+            expected: crate::domain::deck::tests::build_mock_deck(),
             name: String::from("正常系1"),
         },
     ];
@@ -66,11 +64,10 @@ fn shuffle_test() {
 
 #[cfg(test)]
 pub mod tests {
-    use crate::card::Card;
-    use crate::card::State::*;
-    use crate::dealer::Dealer;
-    use crate::deck::Deck;
-    use crate::suit::Suit;
+    use crate::domain::card::Card;
+    use crate::domain::card::State::InDeck;
+    use crate::domain::deck::Deck;
+    use crate::domain::suit::Suit;
 
     pub fn build_mock_deck() -> Deck {
         let cards = vec![

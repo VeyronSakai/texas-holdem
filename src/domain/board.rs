@@ -1,4 +1,5 @@
-use crate::card::Card;
+use crate::domain::card::{Card, State};
+use crate::domain::suit::Suit;
 
 #[derive(PartialEq, Debug)]
 pub struct Board {
@@ -19,8 +20,6 @@ impl Board {
 
 #[test]
 fn it_works() {
-    use crate::suit::Suit;
-    use crate::card::State;
 
     #[derive(Debug)]
     struct TestCase {

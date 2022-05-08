@@ -1,4 +1,5 @@
-use crate::suit::Suit;
+use crate::domain::card::State::{InDeck, InHand};
+use crate::domain::suit::Suit;
 
 #[derive(Eq, PartialEq, Debug, Copy, Clone)]
 pub struct Card {
@@ -29,7 +30,6 @@ pub enum State {
 
 #[test]
 fn it_works() {
-    use crate::card::State::*;
 
     #[derive(Debug)]
     struct TestCase {

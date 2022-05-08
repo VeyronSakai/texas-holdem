@@ -1,5 +1,5 @@
-use crate::card::{Card, State};
-use crate::suit::Suit;
+use crate::domain::card::{Card, State};
+use crate::domain::suit::Suit;
 
 const HAND_NUM: usize = 2;
 
