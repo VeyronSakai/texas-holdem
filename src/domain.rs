@@ -1,7 +1,8 @@
-mod card;
+pub mod card;
 mod board;
 mod dealer;
 mod deck;
 mod hand;
-mod player;
-mod suit;
+pub mod player;
+pub mod player_factory;
+pub mod suit;
