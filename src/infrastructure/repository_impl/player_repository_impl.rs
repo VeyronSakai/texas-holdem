@@ -19,6 +19,6 @@ impl PlayerRepository for PlayerRepositoryImpl {
     }
 
     fn save(&mut self, player: Player) {
-        todo!()
+        self.db.insert(player.id, player);
     }
 }
