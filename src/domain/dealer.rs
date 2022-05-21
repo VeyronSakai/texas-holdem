@@ -1,3 +1,4 @@
+use crate::domain::board::Board;
 use crate::domain::card::{Card, State};
 use crate::domain::card::State::{InDeck, InHand};
 use crate::domain::deck::Deck;
@@ -31,6 +32,11 @@ impl Dealer {
             player.cards.push(card1);
             player.cards.push(card2);
         }
+    }
+
+    fn put_card_on_board(&mut self, board: &mut Board) {
+        let card = self.deck.cards.pop().unwrap();
+        board.add_card(card);
     }
 }
 

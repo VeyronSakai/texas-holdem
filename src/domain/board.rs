@@ -16,11 +16,18 @@ impl Board {
             cards
         }
     }
+
+    pub fn add_card(&mut self, card: Card) {
+        if self.cards.len() >= 5 {
+            panic!("failed to add_card");
+        }
+
+        self.cards.push(card);
+    }
 }
 
 #[test]
 fn it_works() {
-
     #[derive(Debug)]
     struct TestCase {
         args: Vec<Card>,
