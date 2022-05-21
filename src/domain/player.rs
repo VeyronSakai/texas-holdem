@@ -9,7 +9,7 @@ use crate::domain::suit::Suit;
 
 pub const HAND_NUM: usize = 2;
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub struct Player {
     pub id: PlayerId,
     pub cards: [Card; HAND_NUM],
