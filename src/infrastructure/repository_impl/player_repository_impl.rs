@@ -19,14 +19,13 @@ impl PlayerRepository for PlayerRepositoryImpl {
     fn find(&self, id: PlayerId) -> &Player {
         self.db.get(&id).unwrap()
     }
-
     fn save(&mut self, player: Player) {
         self.db.insert(player.id, player);
     }
 }
 
 #[test]
-fn find_test() {
+fn it_works() {
     let player_id = PlayerId::new(uuid::Uuid::default());
 
     let player = Player::new(
@@ -35,12 +34,8 @@ fn find_test() {
         0,
     );
 
-    let mut mp: HashMap<PlayerId, Player> = HashMap::new();
-    mp.insert(player_id, player.clone());
-
-    let repo = PlayerRepositoryImpl {
-        db: mp
-    };
+    let mut repo = PlayerRepositoryImpl::new();
+    repo.save(player.clone());
 
     assert_eq!(*repo.find(player_id), player);
 }
