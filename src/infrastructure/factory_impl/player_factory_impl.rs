@@ -14,9 +14,9 @@ impl PlayerFactoryImpl {
 }
 
 impl PlayerFactory for PlayerFactoryImpl {
-    fn create(&self, hands: [Card; HAND_NUM], chip: i32) -> Player {
+    fn create(&self, chip: i32) -> Player {
         let player_id = PlayerId::new(Uuid::new_v4());
-        Player::new(player_id, hands, chip)
+        Player::new(player_id, chip)
     }
 }
 

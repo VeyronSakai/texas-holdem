@@ -30,7 +30,6 @@ fn it_works() {
 
     let player = Player::new(
         player_id,
-        [Card::new(1, Suit::Club, State::InHand), Card::new(2, Suit::Club, State::InHand)],
         0,
     );
 
